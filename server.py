@@ -18,7 +18,7 @@ def broadcast(msg):
 def handling(client):
     name = f"Client{random.randint(1, 9999)}"
     clients[client] = name
-    welcome_msg = f'Connected to server, your assigned name is : {name}'
+    welcome_msg = f'Connected to server, your assigned name is: {name}'
     client.send(welcome_msg.encode('utf-8'))
     # need to print client list part of work here, but for now imma leave it like this for  testing
     while True:
@@ -26,7 +26,7 @@ def handling(client):
         msg = client.recv(1024).decode('utf-8')
         if msg: #.exit command to disconnect
             if msg == ".exit":
-                print(f'Client {clients[client]} disconnected.')
+                print(f'Client {clients[client]}: disconnected.')
                 del clients[client]
                 client.close()
                 break

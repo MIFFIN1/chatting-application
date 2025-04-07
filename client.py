@@ -19,11 +19,11 @@ def listen_to_server(client):
     while True:
         try:
             message = client.recv(2048).decode('utf-8')
-            if message != ' ':
+            if not message:
                 break
             if ":" in message:
                 username, content = message.split(":", 1)
-                print(f"[{username}]> {content}")
+                print(f"|{username}| {content}")
             else:
                 print(message)
         except:
