@@ -24,6 +24,8 @@ def listen_to_server(client):
             if ":" in message:
                 username, content = message.split(":", 1)
                 print(f"|{username}| {content}")
+                if "Connected to server" not in message and "joined the chat" not in message:
+                    client.sendall(f"RECEIVED from {username}".encode('utf-8'))
             else:
                 print(message)
         except:
